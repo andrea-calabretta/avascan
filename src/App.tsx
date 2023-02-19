@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './App.scss';
+import Image from './components/Image';
+import { TokenERC721 } from './models/tokenERC721';
+import { urlToken } from './urls';
+
+
+
 
 function App() {
+
+  const [urlImage, setUrlImage] = useState('');
+
+  useEffect(() => {
+    fetch(urlToken)
+      .then(response => response.json() as Promise<TokenERC721>)
+      .then(json => setUrlImage(json.uri1024))
+  }, []);
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="row">
+        <Image source={urlImage} alt='Image TokenERC721' />
+      </div>
     </div>
   );
 }

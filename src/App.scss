@@ -1,0 +1,27 @@
+@import './mixin.scss';
+
+.App {
+  background-color: black;
+  height: 100vh;
+  // padding-top: 60px;
+  /* padding-left: 20px;
+  padding-top: 20px; */
+  
+  /* width: 85%; */
+  padding: 60px 10px 0;
+
+}
+
+
+
+.row{
+  width: 100%;
+
+  @include media(md) {
+    margin: 0 auto;
+    width: 80%;
+    
+  }
+  
+  
+}
