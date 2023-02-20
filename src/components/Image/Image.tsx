@@ -26,7 +26,7 @@ const Image = (props: IImage) => {
       </div>
       
       {isZoomIn && <div 
-        onClick={() => { setIsZoomIn(!isZoomIn) ; console.log(isZoomIn)}}
+        onClick={() => setIsZoomIn(!isZoomIn) }
         className = {cx( { 'zoomIn': isZoomIn })} >
         <img
           className='image__big' 
